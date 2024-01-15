@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AppUser>
+<h3>List of registered users</h3>
+<a class="btn btn-outline-success mb-2" asp-action="Create">Add a new user</a>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>User name</th>
+        <th>Email</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    @foreach(var user in Model)
+    {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.UserName</td>
+            <td>@user.Email</td>
+            <td>
+                <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@user.Id">Update</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

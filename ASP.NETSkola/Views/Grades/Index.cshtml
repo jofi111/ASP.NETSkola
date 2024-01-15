@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Grade>
+@using System.Globalization
+<h4>List of all grades</h4>
+<a class="btn btn-outline-success mb-2" asp-action="Create">Add new result</a>
+@foreach(Grade grade in Model)
+{
+    <div class="border border-1 border-primary p-2 rounded-3 mb-1">
+        <p>@grade.Student.FirstName @grade.Student.LastName</p>
+        <p>@grade.Subject.Name - @grade.Topic, Grade: @grade.Result</p>
+        @* <p>@grade.Date.ToShortDateString()</p> *@
+        <p>@grade.Date.ToString("d", CultureInfo.CurrentCulture)</p>
+        <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@grade.Id">Edit result</a>
+        <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@grade.Id">Delete result</a>
+
+    </div>
+}

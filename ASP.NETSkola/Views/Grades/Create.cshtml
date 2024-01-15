@@ -1,0 +1,23 @@
+﻿@using ASP.NETSkola.ViewModels;
+@model GradeVM
+
+<form asp-action="Create">
+    <div>
+        <label asp-for="StudentId">Student</label>
+        <select class="form-control" asp-items="ViewBag.Students" asp-for="StudentId"></select>
+    </div>
+    <div>
+        <label asp-for="SubjectId">Subject</label>
+        <select class="form-control" asp-items="ViewBag.Subjects" asp-for="SubjectId"></select>
+    </div>
+    <div>
+        <label asp-for="Topic"></label>
+        <input type="text" placeholder="Tested topic here" class="form-control" asp-for="Topic"/>
+        @*<span asp/asp-validation-for="Topic"/>*@
+    </div>
+    <div>
+        <label asp-for="Result"></label>
+        <input type="number" min="1" max="5" class="form-control" placeholder="Grade" asp-for="Result"/>
+    </div>
+    <input class="btn btn-outline-success mt-2" type="submit" value="Add result" />
+</form>
